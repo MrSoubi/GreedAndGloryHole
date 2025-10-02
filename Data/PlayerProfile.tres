@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="PlayerProfile" load_steps=2 format=3 uid="uid://csxmypcksrjpk"]
+
+[ext_resource type="Script" uid="uid://cbs7tvn1wa5f7" path="res://Scripts/PlayerProfile.gd" id="1_cos2i"]
+
+[resource]
+script = ExtResource("1_cos2i")
+base_speed = null
+base_size = null
+base_weight = null
+base_jump_power = null
+max_air_control = null
+max_consecutive_jumps = null
+slide_max_speed = null
+slide_max_angle = null
+slide_max_acceleration = null
+slide_to_base_speed_max_duration = null
+slide_deceleration_rate = null
+slide_jump_gravity_multiplier = null
+base_harvest_range = null
+base_harvest_rate = null
+metadata/_custom_type_script = "uid://cbs7tvn1wa5f7"

@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://cjvv8t3j7yj06"]
 
 [ext_resource type="Script" uid="uid://cop5f868f4f4j" path="res://Scripts/PlayerController.gd" id="1_gntrk"]
-[ext_resource type="Script" uid="uid://b5njk2y7uwfcp" path="res://Scripts/PlayerStatsComponent.gd" id="2_dewec"]
-[ext_resource type="Resource" uid="uid://csxmypcksrjpk" path="res://Data/PlayerProfile.tres" id="3_5ixxa"]
+[ext_resource type="Script" uid="uid://b5njk2y7uwfcp" path="res://Scripts/MovementStatsComponent.gd" id="2_dewec"]
+[ext_resource type="Resource" uid="uid://csxmypcksrjpk" path="res://Data/PlayerMovementProfile.tres" id="3_5ixxa"]
 [ext_resource type="Script" uid="uid://c257angsh2a4q" path="res://Scenes/debug_player.gd" id="4_dewec"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]

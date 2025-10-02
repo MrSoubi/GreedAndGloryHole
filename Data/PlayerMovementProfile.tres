@@ -1,7 +1,0 @@
-[gd_resource type="Resource" script_class="MovementProfile" load_steps=2 format=3 uid="uid://csxmypcksrjpk"]
-
-[ext_resource type="Script" uid="uid://cbs7tvn1wa5f7" path="res://Scripts/MovementProfile.gd" id="1_cos2i"]
-
-[resource]
-script = ExtResource("1_cos2i")
-metadata/_custom_type_script = "uid://cbs7tvn1wa5f7"
