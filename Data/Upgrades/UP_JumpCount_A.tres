@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://dj0luamal6npl"]
+
+[ext_resource type="Script" uid="uid://cb011iwabesj8" path="res://Scripts/Upgrades/BaseUpgrade.gd" id="1_mb1sf"]
+[ext_resource type="Resource" uid="uid://dsopgmtns4g4n" path="res://Data/PlayerStats/ConsecutiveJumps.tres" id="2_g2i0t"]
+
+[resource]
+script = ExtResource("1_mb1sf")
+stat_to_upgrade = ExtResource("2_g2i0t")
+additive = 5.0
+metadata/_custom_type_script = "uid://cb011iwabesj8"

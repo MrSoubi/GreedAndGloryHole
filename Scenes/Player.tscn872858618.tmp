@@ -1,0 +1,79 @@
+[gd_scene load_steps=6 format=3 uid="uid://cjvv8t3j7yj06"]
+
+[ext_resource type="Script" uid="uid://cop5f868f4f4j" path="res://Scripts/PlayerController.gd" id="1_gntrk"]
+[ext_resource type="Script" uid="uid://b5njk2y7uwfcp" path="res://Scripts/PlayerStatsComponent.gd" id="2_dewec"]
+[ext_resource type="Resource" uid="uid://csxmypcksrjpk" path="res://Data/PlayerProfile.tres" id="3_5ixxa"]
+[ext_resource type="Script" uid="uid://c257angsh2a4q" path="res://Scenes/debug_player.gd" id="4_dewec"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("movement_stats_comp", "camera_pivot")]
+script = ExtResource("1_gntrk")
+gravity = null
+movement_stats_comp = NodePath("MovementComponent")
+camera_pivot = NodePath("Camera3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_sh265")
+
+[node name="MovementComponent" type="Node" parent="."]
+script = ExtResource("2_dewec")
+base_profile = ExtResource("3_5ixxa")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7012671, 0)
+
+[node name="Debug" type="Control" parent="." node_paths=PackedStringArray("player_controller")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_dewec")
+player_controller = NodePath("..")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Debug"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Speed" type="HBoxContainer" parent="Debug/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Debug/VBoxContainer/Speed"]
+layout_mode = 2
+text = "Speed"
+
+[node name="Value" type="Label" parent="Debug/VBoxContainer/Speed"]
+layout_mode = 2
+
+[node name="IsJumping" type="HBoxContainer" parent="Debug/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Debug/VBoxContainer/IsJumping"]
+layout_mode = 2
+text = "Is Jumping"
+
+[node name="Value" type="Label" parent="Debug/VBoxContainer/IsJumping"]
+layout_mode = 2
+
+[node name="IsSliding" type="HBoxContainer" parent="Debug/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Debug/VBoxContainer/IsSliding"]
+layout_mode = 2
+text = "Is Sliding"
+
+[node name="Value" type="Label" parent="Debug/VBoxContainer/IsSliding"]
+layout_mode = 2
+
+[node name="IsJumpSliding" type="HBoxContainer" parent="Debug/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Debug/VBoxContainer/IsJumpSliding"]
+layout_mode = 2
+text = "Is Jump Sliding"
+
+[node name="Value" type="Label" parent="Debug/VBoxContainer/IsJumpSliding"]
+layout_mode = 2

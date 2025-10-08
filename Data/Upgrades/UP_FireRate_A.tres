@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://q1mgia8n6buy"]
+
+[ext_resource type="Script" uid="uid://cb011iwabesj8" path="res://Scripts/Upgrades/BaseUpgrade.gd" id="1_phteo"]
+[ext_resource type="Resource" uid="uid://ue032ed0rm2u" path="res://Data/PlayerStats/FireRate.tres" id="2_udqog"]
+
+[resource]
+script = ExtResource("1_phteo")
+stat_to_upgrade = ExtResource("2_udqog")
+multiplier = 0.1
+metadata/_custom_type_script = "uid://cb011iwabesj8"

@@ -6,35 +6,29 @@ const SENSITIVITY: float = 0.002
 const SLIDE_DOWNWARD_FORCE: float = 20.0 
 const MIN_SLOPE_ANGLE: float = 5.0 
 const DECELERATION_RATE: float = 10.0 # Taux de freinage au sol
-const ACCELERATION_ON_SLOPE: float = 10.0
+const ACCELERATION_ON_SLOPE: float = 100.0
+const SLIDE_JUMP_GRAVITY_MULTIPLIER: float = 0.8
+const SLIDE_MAX_SPEED: float = 1000.0
+const SLIDE_DECELERATION_RATE: float = 0.1
+const SLIDE_MAX_ACCELERATION: float = 2.0
 
 @export_category("Physic")
 @export var gravity: float = 9.8 
 
 # --- Référence au Composant de Stats (Composition) ---
 @export_category("References")
-@export var movement_stats_comp: PlayerStatsComponent 
 @export var camera_pivot: Node3D 
 
 # --- Variables d'État du Controller ---
+var jump_count: int = 0
 var current_velocity: Vector3 = Vector3.ZERO
 var is_sliding: bool = false
 var is_slide_jumping: bool = false
-
-# --- Debug values ---
-var d_speed: float
-var d_is_jumping: bool
-var d_is_sliding: bool
-var d_is_slide_jumping: bool
-
 
 # --- Initialisation / Input ---
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	if !is_instance_valid(movement_stats_comp):
-		push_error("ERREUR: Le PlayerController nécessite une référence valide au MovementStatsComponent.")
-		set_process(false)
 	# La vérification de camera_pivot a été omise dans l'original fourni, mais je la garde pour l'exemple
 	if !is_instance_valid(camera_pivot):
 		push_error("ERREUR: Le PlayerController nécessite une référence valide à une Camera3D.")
@@ -58,9 +52,9 @@ func _input(event):
 
 func _physics_process(delta: float):
 	# --- 1. Récupération des Inputs et Stats (DDD) ---
-	var normal_speed: float = movement_stats_comp.get_final_stat(PlayerStatConstants.SPEED)
-	var jump_power: float = movement_stats_comp.get_final_stat(PlayerStatConstants.JUMP_POWER)
-	var slide_jump_gravity_mult: float = movement_stats_comp.base_profile.slide_jump_gravity_multiplier
+	var normal_speed: float = PS.walk_speed.current_value
+	var jump_power: float = PS.jump_force.current_value
+	var slide_jump_gravity_mult: float = SLIDE_JUMP_GRAVITY_MULTIPLIER
 	
 	var input_dir: Vector2 = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	var direction: Vector3 = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
@@ -80,12 +74,6 @@ func _physics_process(delta: float):
 	# --- 3. Finaliser le Mouvement (Application) ---
 	velocity = current_velocity
 	move_and_slide()
-	
-	# --- 4. Debug ---
-	d_speed = velocity.length()
-	d_is_slide_jumping = is_slide_jumping
-	d_is_sliding = is_sliding
-	d_is_jumping = not is_on_floor() and not d_is_slide_jumping
 
 
 # ======================================
@@ -96,8 +84,8 @@ func _physics_process(delta: float):
 func handle_slide_state(delta: float, normal_speed: float, jump_power: float) -> bool:
 	
 	# Récupération des valeurs pour la glissade
-	var slide_max_speed: float = movement_stats_comp.base_profile.slide_max_speed
-	var slide_decel_rate: float = movement_stats_comp.base_profile.slide_deceleration_rate
+	var slide_max_speed: float = SLIDE_MAX_SPEED
+	var slide_decel_rate: float = SLIDE_DECELERATION_RATE
 	var min_slope_rad: float = deg_to_rad(MIN_SLOPE_ANGLE)
 	
 	# --- SAUT PENDANT LA GLISSADE ---
@@ -161,13 +149,15 @@ func handle_slide_state(delta: float, normal_speed: float, jump_power: float) ->
 ## Gère le mouvement lorsque le joueur est au sol (marche, saut, déclenchement glissade)
 func handle_ground_movement(delta: float, normal_speed: float, jump_power: float, direction: Vector3):
 	current_velocity.y = 0.0 # Annuler la gravité au sol
+	jump_count = 0
 	
 	# --- DÉCLENCHEMENT DE LA GLISSADE ---
 	if Input.is_action_pressed("slide") and direction != Vector3.ZERO:
 		is_sliding = true
 		current_velocity = direction
 		current_velocity.y = -SLIDE_DOWNWARD_FORCE # Ancrage initial pour démarrer la glissade
-		
+		current_velocity = current_velocity * SLIDE_MAX_ACCELERATION
+		current_velocity.limit_length(PS.slide_speed.current_value)
 	# --- MOUVEMENT NORMAL ---
 	else:
 		if direction:
@@ -180,6 +170,7 @@ func handle_ground_movement(delta: float, normal_speed: float, jump_power: float
 
 		# Saut (normal) 
 		if Input.is_action_just_pressed("jump"):
+			jump_count += 1
 			current_velocity.y = jump_power
 			is_slide_jumping = false
 
@@ -195,7 +186,7 @@ func handle_air_movement(delta: float, normal_speed: float, direction: Vector3, 
 	current_velocity.y = velocity.y - applied_gravity * delta 
 	
 	# Maintien du momentum XZ et contrôle en l'air (utilisation du DDD air_control)
-	var air_control = movement_stats_comp.base_profile.max_air_control
+	var air_control = PS.air_control.current_value
 	current_velocity.x = lerp(current_velocity.x, direction.x * normal_speed, delta * air_control)
 	current_velocity.z = lerp(current_velocity.z, direction.z * normal_speed, delta * air_control)
 	
@@ -204,3 +195,8 @@ func handle_air_movement(delta: float, normal_speed: float, direction: Vector3, 
 	if horizontal_momentum > normal_speed:
 		current_velocity.x = velocity.x
 		current_velocity.z = velocity.z
+	
+	if Input.is_action_just_pressed("jump") and jump_count < PS.consecutive_jumps.current_value:
+		jump_count += 1
+		current_velocity.y = PS.jump_force.current_value
+		is_slide_jumping = false

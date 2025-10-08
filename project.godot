@@ -15,6 +15,12 @@ run/main_scene="uid://b45418onv2plx"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+PS="*res://Scripts/Player/PlayerStats.gd"
+UpgradeManager="*res://Scripts/Upgrades/UpgradeManager.gd"
+EventBus="*res://Scripts/EventBus.gd"
+
 [display]
 
 window/size/viewport_width=640

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="StatDefinition" load_steps=2 format=3 uid="uid://byfyh3bur5tdh"]
+
+[ext_resource type="Script" uid="uid://ceu5yprhs0v3b" path="res://Scripts/Player/StatDefinition.gd" id="1_rne11"]
+
+[resource]
+script = ExtResource("1_rne11")
+base_value = 10.0
+metadata/_custom_type_script = "uid://ceu5yprhs0v3b"
