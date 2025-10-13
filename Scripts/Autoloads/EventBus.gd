@@ -7,3 +7,4 @@ signal on_player_started_sliding
 signal on_player_stopped_sliding(slide_duration : float)
 signal on_player_landed(air_duration : float, jump_count : int)
 signal on_player_jump_on_enemy()
+signal on_player_process(delta : float)

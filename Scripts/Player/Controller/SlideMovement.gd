@@ -5,8 +5,8 @@ extends PlayerMovementStrategy
 class_name SlideMovement
 
 func move(controller: CharacterBody3D, delta: float) -> void:
-	var normal_speed = PS.walk_speed.current_value
-	var jump_power = PS.jump_force.current_value
+	var normal_speed = PlayerStatsManager.walk_speed.current_value
+	var jump_power = PlayerStatsManager.jump_force.current_value
 	var slide_max_speed = controller.SLIDE_MAX_SPEED
 	var slide_decel_rate = controller.SLIDE_DECELERATION_RATE
 	var min_slope_rad = deg_to_rad(controller.MIN_SLOPE_ANGLE)

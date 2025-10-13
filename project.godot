@@ -17,9 +17,12 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-PS="*res://Scripts/Player/PlayerStats.gd"
+PlayerStatsManager="*res://Scripts/Player/PlayerStats.gd"
 UpgradeManager="*res://Scripts/Upgrades/UpgradeManager.gd"
 EventBus="*res://Scripts/EventBus.gd"
+GameContext="*res://Scripts/GameContext.gd"
+FeedbackManager="*res://Scripts/FeedbackManager.gd"
+AudioManager="*res://Scripts/AudioManager.gd"
 
 [debug]
 

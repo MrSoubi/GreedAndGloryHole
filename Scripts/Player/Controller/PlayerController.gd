@@ -15,10 +15,16 @@ const SLIDE_MAX_ACCELERATION: float = 2.0
 @export_category("Physic")
 @export var gravity: float = 9.8 
 
+
 # --- Référence au Composant de Stats (Composition) ---
 
 @export_category("References")
 @export var camera_pivot: Node3D
+
+# --- Stratégies de mouvement assignables dans l'éditeur ---
+@export var ground_strategy: Resource
+@export var air_strategy: Resource
+@export var slide_strategy: Resource
 
 
 var movement_strategies = {}
@@ -43,10 +49,12 @@ func _ready():
 	if !is_instance_valid(camera_pivot):
 		push_error("ERREUR: Le PlayerController nécessite une référence valide à une Camera3D.")
 	# Chargement dynamique des stratégies de mouvement
+
+	# Les stratégies de mouvement sont assignées via l'éditeur
 	movement_strategies = {
-		"ground": preload("uid://bu0bdyjue8k2g").new(),
-		"air": preload("uid://dguifa1meb148").new(),
-		"slide": preload("uid://b1qwrlrnaxxbd").new()
+		"ground": ground_strategy,
+		"air": air_strategy,
+		"slide": slide_strategy
 	}
 	current_movement_strategy = movement_strategies["ground"]
 
