@@ -1,4 +1,4 @@
-class_name Upgrade
+class_name BaseUpgrade
 extends Resource
 
 @export var stat_to_upgrade : StatDefinition
