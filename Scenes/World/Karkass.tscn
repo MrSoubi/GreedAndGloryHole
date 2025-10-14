@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwcxjy7qo3t86"]
+[gd_scene load_steps=5 format=3 uid="uid://bujscyggcl1e2"]
 
-[ext_resource type="Script" uid="uid://c1h4hjibqujoj" path="res://Scripts/karkass.gd" id="1_iw2fk"]
+[ext_resource type="Script" uid="uid://c1h4hjibqujoj" path="res://Scripts/World/karkass.gd" id="1_iw2fk"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_f8qxv"]
 radius = 3.0

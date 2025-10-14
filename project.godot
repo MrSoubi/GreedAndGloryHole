@@ -17,13 +17,13 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-AudioManager="*res://Scripts/Autoloads/AudioManager.gd"
-EventBus="*res://Scripts/Autoloads/EventBus.gd"
-FeedbackManager="*res://Scripts/Autoloads/FeedbackManager.gd"
-GameContext="*res://Scripts/Autoloads/GameContext.gd"
-UpgradeManager="*res://Scripts/Autoloads/UpgradeManager.gd"
-CurrencyManager="*res://Scripts/Autoloads/CurrencyManager.gd"
-PlayerStatsManager="*res://Scenes/PlayerStatsManager.tscn"
+AudioManager="*res://Autoloads/AudioManager.gd"
+CurrencyManager="*res://Autoloads/CurrencyManager.gd"
+EventBus="*res://Autoloads/EventBus.gd"
+FeedbackManager="*res://Autoloads/FeedbackManager.gd"
+GameContext="*res://Autoloads/GameContext.gd"
+PlayerStatsManager="*res://Autoloads/PlayerStatsManager.tscn"
+UpgradeManager="*res://Autoloads/UpgradeManager.gd"
 
 [debug]
 

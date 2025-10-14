@@ -1,0 +1,31 @@
+[gd_scene load_steps=14 format=3 uid="uid://duhdhjsci7e5j"]
+
+[ext_resource type="Script" uid="uid://bbulyivfw4222" path="res://Scripts/Player/PlayerStats.gd" id="1_n011i"]
+[ext_resource type="Resource" path="res://Data/Player/Stats/WalkSpeed.tres" id="2_ly14e"]
+[ext_resource type="Resource" path="res://Data/Player/Stats/FireRate.tres" id="3_eghpa"]
+[ext_resource type="Resource" path="res://Data/Player/Stats/JumpForce.tres" id="4_jts72"]
+[ext_resource type="Resource" path="res://Data/Player/Stats/MaxHealth.tres" id="5_r02tw"]
+[ext_resource type="Resource" path="res://Data/Player/Stats/Size.tres" id="6_ode4v"]
+[ext_resource type="Resource" path="res://Data/Player/Stats/Weight.tres" id="7_tob8j"]
+[ext_resource type="Resource" path="res://Data/Player/Stats/AirControl.tres" id="8_2vr01"]
+[ext_resource type="Resource" path="res://Data/Player/Stats/ConsecutiveJumps.tres" id="9_120eq"]
+[ext_resource type="Resource" path="res://Data/Player/Stats/SlideSpeed.tres" id="10_rvcnx"]
+[ext_resource type="Resource" path="res://Data/Player/Stats/HarvestRange.tres" id="11_7a5dw"]
+[ext_resource type="Resource" path="res://Data/Player/Stats/HarvestRate.tres" id="12_2d88y"]
+[ext_resource type="Resource" path="res://Data/Player/Stats/HarvestPower.tres" id="13_id10k"]
+
+[node name="PlayerStats" type="Node"]
+script = ExtResource("1_n011i")
+walk_speed = ExtResource("2_ly14e")
+fire_rate = ExtResource("3_eghpa")
+jump_force = ExtResource("4_jts72")
+max_health = ExtResource("5_r02tw")
+size = ExtResource("6_ode4v")
+weight = ExtResource("7_tob8j")
+air_control = ExtResource("8_2vr01")
+consecutive_jumps = ExtResource("9_120eq")
+slide_speed = ExtResource("10_rvcnx")
+harvest_range = ExtResource("11_7a5dw")
+harvest_rate = ExtResource("12_2d88y")
+harvest_power = ExtResource("13_id10k")
+metadata/_custom_type_script = "uid://bbulyivfw4222"
