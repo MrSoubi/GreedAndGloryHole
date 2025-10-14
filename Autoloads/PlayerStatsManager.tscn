@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://duhdhjsci7e5j"]
 
-[ext_resource type="Script" uid="uid://bbulyivfw4222" path="res://Scripts/Player/PlayerStats.gd" id="1_n011i"]
+[ext_resource type="Script" uid="uid://bbulyivfw4222" path="res://Scripts/Autoloads/PlayerStats.gd" id="1_n011i"]
 [ext_resource type="Resource" path="res://Data/Player/Stats/WalkSpeed.tres" id="2_ly14e"]
 [ext_resource type="Resource" path="res://Data/Player/Stats/FireRate.tres" id="3_eghpa"]
 [ext_resource type="Resource" path="res://Data/Player/Stats/JumpForce.tres" id="4_jts72"]

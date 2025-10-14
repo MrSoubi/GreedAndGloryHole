@@ -11,19 +11,23 @@ config_version=5
 [application]
 
 config/name="GreedAndGloryHole"
-run/main_scene="uid://b45418onv2plx"
+run/main_scene="uid://bigea6gc342jx"
 config/features=PackedStringArray("4.5", "Forward Plus")
+boot_splash/bg_color=Color(0.051970966, 0.051970966, 0.051970936, 1)
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [autoload]
 
-AudioManager="*res://Autoloads/AudioManager.gd"
-CurrencyManager="*res://Autoloads/CurrencyManager.gd"
-EventBus="*res://Autoloads/EventBus.gd"
-FeedbackManager="*res://Autoloads/FeedbackManager.gd"
-GameContext="*res://Autoloads/GameContext.gd"
+CurrencyManager="*res://Autoloads/CurrencyManager.tscn"
+EventBus="*res://Autoloads/EventBus.tscn"
+FeedbackManager="*res://Autoloads/FeedbackManager.tscn"
+GameContext="*res://Autoloads/GameContext.tscn"
 PlayerStatsManager="*res://Autoloads/PlayerStatsManager.tscn"
-UpgradeManager="*res://Autoloads/UpgradeManager.gd"
+SceneManager="*res://Autoloads/SceneManager.tscn"
+TransitionManager="*res://Autoloads/TransitionManager.tscn"
+UpgradeManager="*res://Autoloads/UpgradeManager.tscn"
+AudioManager="*res://Autoloads/AudioManager.tscn"
 
 [debug]
 

@@ -1,0 +1,73 @@
+[gd_scene load_steps=4 format=3 uid="uid://bj7sbwtewo1w5"]
+
+[ext_resource type="Script" uid="uid://dayvuv66exbm6" path="res://Scenes/MainMenu/MainMenu.gd" id="1_cdkru"]
+[ext_resource type="Texture2D" uid="uid://bdfxr23qcx8my" path="res://Assets/UI/Sprites/Title_Back.png" id="2_sg7ab"]
+[ext_resource type="Texture2D" uid="uid://cn1i0s2ugx0oj" path="res://Assets/UI/Sprites/Title_Front.png" id="3_kpx3y"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cdkru")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.080783255, 0.080783375, 0.080783345, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 14.000008
+offset_top = -85.0
+offset_right = 1038.0
+offset_bottom = 939.0
+scale = Vector2(0.6395198, 0.6395198)
+texture = ExtResource("2_sg7ab")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 108.0
+offset_top = 28.0
+offset_right = 108.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6501109, 0.6501109)
+texture = ExtResource("3_kpx3y")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 99.0
+offset_bottom = 165.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_right = 200
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "START"
+
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "QUIT
+"

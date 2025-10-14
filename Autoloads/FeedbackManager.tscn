@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgjtu14qxw0s0"]
+
+[ext_resource type="Script" uid="uid://dxd3fow40xifk" path="res://Scripts/Autoloads/FeedbackManager.gd" id="1_e5c1w"]
+
+[node name="FeedbackManager" type="Node"]
+script = ExtResource("1_e5c1w")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbsf1ibhhjkrq"]
+
+[ext_resource type="Script" uid="uid://crqa8bl6vjeit" path="res://Scripts/Autoloads/GameContext.gd" id="1_brn0q"]
+
+[node name="GameContext" type="Node"]
+script = ExtResource("1_brn0q")
