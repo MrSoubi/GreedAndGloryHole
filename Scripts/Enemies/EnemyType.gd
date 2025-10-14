@@ -9,3 +9,9 @@ class_name EnemyType
 @export var is_flying: bool = false
 
 # Ajoute ici d'autres propriétés spécifiques (attaque, loot, etc.)
+
+# Méthode à surcharger pour définir le comportement de l'ennemi
+@warning_ignore("unused_parameter")
+func perform_action(enemy: Node, delta: float) -> void:
+	# Par défaut, ne fait rien. À surcharger dans les sous-ressources EnemyType.
+	pass

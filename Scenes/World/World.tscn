@@ -1,7 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://b45418onv2plx"]
+[gd_scene load_steps=10 format=3 uid="uid://b45418onv2plx"]
 
 [ext_resource type="PackedScene" path="res://Scenes/Player/Player.tscn" id="1_5cjrv"]
 [ext_resource type="PackedScene" uid="uid://bujscyggcl1e2" path="res://Scenes/World/Karkass.tscn" id="2_j0p05"]
+[ext_resource type="PackedScene" uid="uid://dfymdtqicijye" path="res://Scenes/Enemies/Enemy.tscn" id="3_ouhkt"]
+[ext_resource type="PackedScene" uid="uid://cwhmv0rktcf7u" path="res://Assets/Meshes/Ork.blend" id="4_27jhl"]
+[ext_resource type="Script" uid="uid://b7a1had335lt5" path="res://Scripts/Enemies/OrkType.gd" id="5_hveh7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5cjrv"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -15,6 +18,13 @@ background_mode = 2
 sky = SubResource("Sky_j0p05")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="Resource" id="Resource_87yka"]
+script = ExtResource("5_hveh7")
+display_name = "Ork"
+model_scene = ExtResource("4_27jhl")
+speed = 2.0
+metadata/_custom_type_script = "uid://da5nb8nctwgmv"
 
 [node name="World" type="Node3D"]
 
@@ -39,3 +49,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1.2093704, -3)
 
 [node name="Karkass" parent="." instance=ExtResource("2_j0p05")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.932482, 0.07267779, 9.204163)
+
+[node name="Enemy" parent="." instance=ExtResource("3_ouhkt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4722176, 0.010001183, 7.8863764)
+enemy_type = SubResource("Resource_87yka")

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="OrkType" load_steps=3 format=3 uid="uid://d0gqctmdmtama"]
+
+[ext_resource type="Script" uid="uid://b7a1had335lt5" path="res://Scripts/Enemies/OrkType.gd" id="1_j8lgf"]
+[ext_resource type="PackedScene" uid="uid://cwhmv0rktcf7u" path="res://Assets/Meshes/Ork.blend" id="1_q3y16"]
+
+[resource]
+script = ExtResource("1_j8lgf")
+display_name = "Ork"
+model_scene = ExtResource("1_q3y16")
+metadata/_custom_type_script = "uid://b7a1had335lt5"

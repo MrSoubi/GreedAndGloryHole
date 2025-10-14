@@ -21,3 +21,7 @@ func take_damage(amount: int) -> void:
 
 func die() -> void:
     queue_free()
+
+# Appelle le comportement défini dans EnemyType à chaque frame
+func _process(delta: float) -> void:
+    enemy_type.perform_action(self, delta)
