@@ -5,10 +5,10 @@ class_name AirMovement
 
 func move(controller: CharacterBody3D, delta: float) -> void:
 	var direction = controller.get("input_direction")
-	var normal_speed = PS.walk_speed.current_value
-	var air_control = PS.air_control.current_value
+	var normal_speed = PlayerStatsManager.walk_speed.current_value
+	var air_control = PlayerStatsManager.air_control.current_value
 	var slide_jump_gravity_mult = controller.SLIDE_JUMP_GRAVITY_MULTIPLIER
-	var jump_power = PS.jump_force.current_value
+	var jump_power = PlayerStatsManager.jump_force.current_value
 	var gravity = controller.gravity
 
 	var applied_gravity = gravity
@@ -24,7 +24,7 @@ func move(controller: CharacterBody3D, delta: float) -> void:
 		controller.current_velocity.x = controller.velocity.x
 		controller.current_velocity.z = controller.velocity.z
 
-	if Input.is_action_just_pressed("jump") and controller.jump_count < PS.consecutive_jumps.current_value:
+	if Input.is_action_just_pressed("jump") and controller.jump_count < PlayerStatsManager.consecutive_jumps.current_value:
 		controller.jump_count += 1
 		controller.current_velocity.y = jump_power
 		controller.is_slide_jumping = false

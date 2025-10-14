@@ -1,6 +1,6 @@
 extends Area3D
 
-@export var upgrade : Upgrade
+@export var upgrade : BaseUpgrade
 
 func _ready() -> void:
 	upgrade = upgrade.duplicate()

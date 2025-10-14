@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b45418onv2plx"]
+[gd_scene load_steps=7 format=3 uid="uid://b45418onv2plx"]
 
 [ext_resource type="PackedScene" uid="uid://cjvv8t3j7yj06" path="res://Scenes/Player.tscn" id="1_5cjrv"]
+[ext_resource type="PackedScene" uid="uid://bujscyggcl1e2" path="res://Scenes/Karkass.tscn" id="2_j0p05"]
+[ext_resource type="PackedScene" uid="uid://duhdhjsci7e5j" path="res://Scenes/PlayerStatsManager.tscn" id="3_5nsto"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5cjrv"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -35,3 +37,8 @@ size = Vector3(25, 0.02, 25)
 
 [node name="Player" parent="." instance=ExtResource("1_5cjrv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1.2093704, -3)
+
+[node name="Karkass" parent="." instance=ExtResource("2_j0p05")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.932482, 0.07267779, 9.204163)
+
+[node name="PlayerStats" parent="." instance=ExtResource("3_5nsto")]

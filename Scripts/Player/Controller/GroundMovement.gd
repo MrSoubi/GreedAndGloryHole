@@ -6,11 +6,11 @@ class_name GroundMovement
 
 func move(controller: CharacterBody3D, delta: float) -> void:
 	var direction = controller.get("input_direction")
-	var normal_speed = PS.walk_speed.current_value
-	var jump_power = PS.jump_force.current_value
+	var normal_speed = PlayerStatsManager.walk_speed.current_value
+	var jump_power = PlayerStatsManager.jump_force.current_value
 	var decel = controller.DECELERATION_RATE
 	var slide_accel = controller.SLIDE_MAX_ACCELERATION
-	var slide_speed = PS.slide_speed.current_value
+	var slide_speed = PlayerStatsManager.slide_speed.current_value
 
 	controller.current_velocity.y = 0.0
 	controller.jump_count = 0

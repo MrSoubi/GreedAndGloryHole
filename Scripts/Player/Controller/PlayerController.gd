@@ -45,6 +45,7 @@ var slide_time: float = 0.0
 
 
 func _ready():
+	GameContext.player = self
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	if !is_instance_valid(camera_pivot):
 		push_error("ERREUR: Le PlayerController nécessite une référence valide à une Camera3D.")
@@ -52,9 +53,9 @@ func _ready():
 
 	# Les stratégies de mouvement sont assignées via l'éditeur
 	movement_strategies = {
-		"ground": ground_strategy,
-		"air": air_strategy,
-		"slide": slide_strategy
+		"ground": ground_strategy.new(),
+		"air": air_strategy.new(),
+		"slide": slide_strategy.new()
 	}
 	current_movement_strategy = movement_strategies["ground"]
 

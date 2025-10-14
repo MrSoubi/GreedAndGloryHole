@@ -12,3 +12,4 @@ extends Node
 @export var slide_speed : StatDefinition
 @export var harvest_range : StatDefinition
 @export var harvest_rate : StatDefinition
+@export var harvest_power : StatDefinition
